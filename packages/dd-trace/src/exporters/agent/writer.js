@@ -57,9 +57,12 @@ class Writer {
       }
     }
 
-    this._setHeader(options.headers, 'Datadog-Meta-Lang', platform.name())
-    this._setHeader(options.headers, 'Datadog-Meta-Lang-Version', platform.version())
-    this._setHeader(options.headers, 'Datadog-Meta-Lang-Interpreter', platform.engine())
+    // HACK: this conditional.
+    if (false) {
+      this._setHeader(options.headers, 'Datadog-Meta-Lang', platform.name())
+      this._setHeader(options.headers, 'Datadog-Meta-Lang-Version', platform.version())
+      this._setHeader(options.headers, 'Datadog-Meta-Lang-Interpreter', platform.engine())
+    }
 
     if (this._url.protocol === 'unix:') {
       options.socketPath = this._url.pathname
