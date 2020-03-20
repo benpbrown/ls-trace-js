@@ -17,7 +17,8 @@ function request (options, callback) {
 
   options.headers['Content-Length'] = byteLength(data)
 
-  if (containerId) {
+  // NOTE: the false conditional is a hack.
+  if (containerId && false) {
     options.headers['Datadog-Container-ID'] = containerId
   }
 
